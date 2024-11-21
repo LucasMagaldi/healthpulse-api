@@ -3,7 +3,9 @@ import 'dotenv/config'
 
 const envSchema = z.object({
     NODE_ENV: z.enum(['dev', 'acc', 'prod']).default('dev'),
-    PORT: z.coerce.number().default(8080)
+    PORT: z.coerce.number().default(8080),
+    TWILLIO_AUTH: z.string(),
+    TWILLIO_ACCOUNT_SID: z.string(),
 })
 
 const _env = envSchema.safeParse(process.env)
